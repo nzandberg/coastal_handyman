@@ -32,9 +32,7 @@
                 <a href="#services" class="hover:text-coastalBlue">Services</a>
                 <a href="#pricing" class="hover:text-coastalBlue">Pricing</a>
                 <a href="#contact" class="bg-coastalBlue text-white px-4 py-1.5 rounded hover:bg-opacity-90 transition">Get a Quote</a>
-                <button class="theme-toggle inline-flex items-center justify-center rounded-full bg-slate-100 text-slate-700 p-2 hover:bg-slate-200 transition dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700" type="button" aria-label="Toggle dark mode">🌙</button>
             </div>
-            <button class="theme-toggle md:hidden inline-flex items-center justify-center rounded-full bg-slate-100 text-slate-700 p-2 hover:bg-slate-200 transition dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700" type="button" aria-label="Toggle dark mode">🌙</button>
         </div>
     </nav>
 
@@ -186,25 +184,5 @@
         <p class="mt-1">Proudly serving local coastal communities.</p>
     </footer>
 
-    <script>
-        const themeToggleButtons = document.querySelectorAll('.theme-toggle');
-        const applyTheme = (theme) => {
-            document.documentElement.classList.toggle('dark', theme === 'dark');
-            localStorage.setItem('coastal-handyman-theme', theme);
-            themeToggleButtons.forEach((button) => {
-                button.textContent = theme === 'dark' ? '☀️' : '🌙';
-                button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-            });
-        };
-        const savedTheme = localStorage.getItem('coastal-handyman-theme');
-        const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        applyTheme(savedTheme || defaultTheme);
-        themeToggleButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-                applyTheme(nextTheme);
-            });
-        });
-    </script>
 </body>
 </html>
